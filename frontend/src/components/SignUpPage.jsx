@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 
-const SignUpPage = () => {
+const SignUpPage = ()=>{
     const [formData, setFormData] = useState({
         username: '',
         email: '',
@@ -12,21 +12,21 @@ const SignUpPage = () => {
         confirmPassword: ''
     });
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+    const handleChange = (e)=>{
+        setFormData({...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e)=>{
         e.preventDefault();
-        try {
+        try{
             await axios.post('http://localhost:5000/api/users/signup', formData);
             alert('User registered successfully');
-        } catch (error) {
+        }catch (error){
             console.error(error);
         }
     };
 
-    return (
+    return(
         <div className='formContainer'>
                <form onSubmit={handleSubmit}>
             <input type="text" name="username" placeholder="Username" onChange={handleChange} required />

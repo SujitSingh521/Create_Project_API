@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, {useState} from 'react';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
@@ -7,10 +7,10 @@ import SignUpPage from './components/SignUpPage';
 import LoginPage from './components/LoginPage';
 import "./App.css"
 
-function App() {
+function App(){
     const [user, setUser] = useState(null);
 
-    return (
+    return(
         <Router>
             <Navbar user={user} setUser={setUser} />
             <Routes>
