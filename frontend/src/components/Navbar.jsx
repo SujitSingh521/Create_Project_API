@@ -1,20 +1,20 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = ({user, setUser}) =>{
+const Navbar = ({ user, setUser }) => {
     const [isMobile, setIsMobile] = useState(false);
 
-    const handleLogout = () =>{
+    const handleLogout = () => {
         setUser(null);
         localStorage.removeItem('token');
     };
 
-    return(
+    return (
         <nav>
             <div className="logo">
                 <Link to="/">MyWebsite</Link>
             </div>
-            <button className="mobile-menu-icon" onClick={()=>setIsMobile(!isMobile)}>
+            <button className="mobile-menu-icon" onClick={() => setIsMobile(!isMobile)}>
                 {isMobile ? <i className="fas fa-times"></i> : <i className="fas fa-bars"></i>}
             </button>
             <ul className={isMobile ? "nav-links nav-links-mobile" : "nav-links"}>
@@ -26,7 +26,7 @@ const Navbar = ({user, setUser}) =>{
                         <li><Link to="/login">Login</Link></li>
                     </>
                 )}
-                {user &&(
+                {user && (
                     <>
                         <li>{user.username}</li>
                         <li><button onClick={handleLogout}>Logout</button></li>
