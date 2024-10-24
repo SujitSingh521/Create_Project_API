@@ -3,24 +3,34 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
-import SignUpPage from './components/SignUpPage';
 import LoginPage from './components/LoginPage';
-import "./App.css"
+import SignUpPage from "./components/SignUpPage";
+import './App.css'; // Main styles for the app
 
-function App() {
-    const [user, setUser] = useState(null);
+const App = () => {
+    const [username, setUsername] = useState('');
+
+    const handleLogin = (username) => {
+        setUsername(username);
+    };
+
+    const handleLogout = () => {
+        setUsername('');
+    };
 
     return (
         <Router>
-            <Navbar user={user} setUser={setUser} />
-            <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="/signup" element={<SignUpPage />} />
-                <Route path="/login" element={<LoginPage setUser={setUser} />} />
-            </Routes>
+            <Navbar username={username} onLogout={handleLogout} />
+            <div className="content">
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/about" element={<AboutPage />} />
+                    <Route path="/signup" element={<SignUpPage />} />
+                    <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
+                </Routes>
+            </div>
         </Router>
     );
-}
+};
 
 export default App;

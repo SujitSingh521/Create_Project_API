@@ -1,14 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 
-const userLogger = (req, res, next) => {
-    const logPath = path.join(__dirname, '..', 'log.txt');
-    const logEntry = `User: ${req.user.id}, Role: ${req.user.role}, Time: ${new Date().toISOString()}\n`;
+const logger = (req, res, next) => {
+    const { username, role } = req.body;
+    const log = `${new Date().toISOString()} - Username: ${username}, Role: ${role}\n`;
 
-    fs.appendFile(logPath, logEntry, (err) => {
-        if (err) console.log(err);
-    });
+    fs.appendFileSync(path.join(__dirname, '../logs/log.txt'), log);
     next();
 };
 
-module.exports = userLogger;
+module.exports = { logger };

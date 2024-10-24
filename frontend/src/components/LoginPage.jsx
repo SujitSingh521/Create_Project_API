@@ -1,30 +1,33 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from '../axiosConfig';
 
-const LoginPage = ({ setUser }) => {
-  const [formData, setFormData] = useState({
+const LoginPage = ({ onLogin }) => {
+  const [credentials, setCredentials] = useState({
     username: '',
-    password: ''
+    password: '',
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setCredentials({ ...credentials, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/users/login', formData);
-      const { token, username, role } = response.data;
-      localStorage.setItem('token', token);
-      setUser({ username, role });
+      const response = await axios.post('/api/users/login', credentials);
+      alert('Login successful!');
+      onLogin(response.data.username); // Pass the username to the parent component
+      // Redirect to home or perform any action after successful login
     } catch (error) {
       console.error(error);
+      alert('Login failed!');
     }
   };
 
   return (
-    <div className="formContainer">
+    <div className="login">
+      <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <input type="text" name="username" placeholder="Username" onChange={handleChange} required />
         <input type="password" name="password" placeholder="Password" onChange={handleChange} required />

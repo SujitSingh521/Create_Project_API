@@ -26,7 +26,7 @@ ul {
 }
 
 li {
-  color: #ecf0f1;
+  color: #2fbde1;
 }
 
 a {
@@ -109,7 +109,6 @@ input,
 select {
   margin: 10px 0;
   padding: 10px;
-  border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
 }
@@ -119,8 +118,6 @@ button {
   color: #fff;
   border: none;
   padding: 10px;
-  cursor: pointer;
-  border-radius: 5px;
 }
 
 button:hover {
@@ -143,4 +140,129 @@ h1 {
   h1 {
     font-size: 24px;
   }
+}
+
+.about {
+  padding: 20px;
+  text-align: left;
+}
+
+.home-banner {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  text-align: center;
+  position: relative;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+}
+
+h2 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+
+p {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.login {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.login form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login input {
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.login button {
+  padding: 10px;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar {
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  font-size: 24px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.logout-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.signup {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.signup form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup input,
+.signup select {
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.signup button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+:root {
+  color: #213547;
+  background-color: #009688;
 }
